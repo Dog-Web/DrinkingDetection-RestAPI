@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autocont
+  labels:
+    app: autocont
+  namespace: namespace-workflow-1688625052800
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: autocont
+  template:
+    metadata:
+      labels:
+        app: autocont
+    spec:
+      containers:
+        - name: autocont
+          image: acrworkflow1688625052800.azurecr.io/image-workflow-1688625052800:latest
+          ports:
+            - containerPort: 8000
